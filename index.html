@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Docker + Apache — Hello</title>
+  <style>
+    :root{--bg:#0f1222;--fg:#e9ecf1;--card:#1a1f3b;--accent:#6a5acd}
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif}
+    header{padding:56px 24px;text-align:center;background:linear-gradient(135deg,#6a5acd,#00b3ff);color:#fff}
+    main{max-width:860px;margin:32px auto;padding:0 16px}
+    .card{background:var(--card);border-radius:16px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    code{background:#10163a;padding:2px 6px;border-radius:6px}
+    button{margin-top:8px;padding:10px 16px;border:0;border-radius:12px;background:var(--accent);color:#fff;font-weight:600;cursor:pointer}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🚀 Hello from Apache inside Docker</h1>
+    <p>Este repositório tem <strong>apenas dois arquivos</strong>: <code>docker-compose.yml</code> e <code>index.html</code>.</p>
+  </header>
+  <main>
+    <div class="card">
+      <h2>Como rodar</h2>
+      <ol>
+        <li>No terminal, execute: <code>docker compose up -d</code></li>
+        <li>Acesse: <code>http://localhost:8080</code></li>
+        <li>Para parar: <code>docker compose down</code></li>
+      </ol>
+      <h3>Como funciona</h3>
+      <p>O arquivo <code>docker-compose.yml</code> usa a imagem <code>httpd:2.4</code> e monta a pasta do repositório na raiz pública do Apache (<code>/usr/local/apache2/htdocs</code>).</p>
+      <button id="btn">Testar JavaScript</button>
+      <p id="out"></p>
+    </div>
+  </main>
+  <script>
+    document.getElementById('btn').onclick = function(){
+      document.getElementById('out').textContent = 'JS funcionando ✅';
+    };
+  </script>
+</body>
+</html>
